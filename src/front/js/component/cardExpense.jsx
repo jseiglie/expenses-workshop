@@ -15,7 +15,7 @@ export const CardExpense = ({ description, amount, category, eid }) => {
         <div className="card" style={{ width: "18rem", background: category == 'entertainment' ? 'darkkhaki' : 'green' }} >
             <img src="..." className="card-img-top" alt="..." />
             <div className="card-body">
-                <h5 className="card-title">{isCategoryValid ? category : "Unknown Category"}</h5>
+                <h5 className="card-title">{category}</h5>
                 <p className="card-text">{description}</p>
                 <p className="card-text">${amount}</p>
 
