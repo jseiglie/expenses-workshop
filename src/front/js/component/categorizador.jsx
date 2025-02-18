@@ -9,7 +9,7 @@ export const Categorizador = () => {
         price: "",
         description: ""
      });
-
+     const [loading, setLoading] = useState(false);
      const handleChange = (e) => {
         setFormData({
             ...formData,
@@ -17,17 +17,20 @@ export const Categorizador = () => {
         });
       };
 
-      const handleSubmit = e => {
+      const handleSubmit = async e => {
         e.preventDefault();
-        actions.categorize(formData);
+        setLoading(true);
+        await actions.categorize(formData);
         setFormData({
             price: "",
             description: "" 
        });
+         setLoading(false);
     };
 
     return (
         <div>
+            {loading  && <div className="spinner-border text-primary" role="status"></div>}
             <form className="form mx-auto w-50" onSubmit={handleSubmit}>
                 <input className="form-control" type="number" name="price" value={formData.price} onChange={handleChange} />
                 <textarea className="form-control" name="description" value={formData.description} onChange={handleChange} cols={50}/>

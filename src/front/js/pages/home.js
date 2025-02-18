@@ -11,11 +11,14 @@ export const Home = () => {
 
 	return (
 		<div className="text-center mt-5">
-			{!store.user ? <Login /> : <div> 
+			{
+			!store.user ? <Login /> : <div> 
 				<h1>Welcome {store.user?.email}</h1>
 				<Categorizador />
 				<VisualizacionGastos />
-			</div>}
+			</div>
+			}
 		</div>
+		
 	);
 };
